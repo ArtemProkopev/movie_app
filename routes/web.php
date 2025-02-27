@@ -39,6 +39,8 @@ Route::get('/movies/{id}', function ($id) {
     return view('movie.movie_detail', compact('movie'));
 })->name('movie.show');
 
+Route::get('/movies', [MovieController::class, 'index'])->name('movie.list');
+
 // Админские маршруты
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

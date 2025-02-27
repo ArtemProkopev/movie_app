@@ -11,6 +11,11 @@
 									Users
 							</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link {{ request()->is('movies*') ? 'active' : '' }}" href="{{ route('movie.list') }}">
+								Movies
+						</a>
+				</li>
 			</ul>
 	</div>
 </nav>
