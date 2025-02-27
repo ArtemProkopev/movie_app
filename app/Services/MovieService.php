@@ -8,6 +8,6 @@ class MovieService
 {
     public function getList()
     {
-        return Movie::paginate(2);
+        return Movie::paginate(20);
     }
 }
