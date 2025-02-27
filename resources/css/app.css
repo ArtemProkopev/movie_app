@@ -95,3 +95,37 @@ footer p {
     font-size: 1.5rem;
     color: #444;
 }
+
+.movie-detail {
+    padding: 2rem 0;
+}
+
+.movie-detail .text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.movie-detail .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.movie-detail .bg-white {
+    background-color: #fff;
+}
+
+.movie-detail .rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.movie-detail .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.movie-detail .object-cover {
+    object-fit: cover;
+}
+
+.movie-detail .hover\:bg-blue-600:hover {
+    background-color: #2563eb;
+}

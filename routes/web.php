@@ -5,6 +5,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Movie;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -27,4 +30,26 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/movies', [MovieController::class, 'index'])->name('movie.list');
+Route::get('/movies/{id}', function ($id) {
+    $movie = Movie::query()->find($id);
+    if (!$movie) {
+        abort(404);
+    }
+    return view('movie.movie_detail', compact('movie'));
+})->name('movie.show');
+
+// Админские маршруты
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+    // Маршруты для пользователей
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('index'); // admin.users.index
+    });
+});
+
+// Редирект с /admin на dashboard
+Route::get('/admin', function () {
+    return redirect()->route('admin.dashboard');
+});
