@@ -41,17 +41,14 @@ Route::get('/movies/{id}', function ($id) {
 
 Route::get('/movies', [MovieController::class, 'index'])->name('movie.list');
 
-// Админские маршруты
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-    // Маршруты для пользователей
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index'); // admin.users.index
     });
 });
 
-// Редирект с /admin на dashboard
 Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
 });
