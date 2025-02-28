@@ -16,6 +16,11 @@
 								Movies
 						</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">
+							Home
+					</a>
+			</li>
 			</ul>
 	</div>
 </nav>
