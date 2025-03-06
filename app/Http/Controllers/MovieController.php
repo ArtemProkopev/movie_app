@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\MovieService;
+use App\Models\Movie;
 
 class MovieController extends Controller
 {
@@ -16,7 +17,12 @@ class MovieController extends Controller
     public function index()
     {
         $movies = $this->movieService->getList();
-        // dd($movies);
         return view('movie.movie_list', compact('movies'));
+    }
+
+    public function show($slug)
+    {
+        $movie = Movie::where('slug', $slug)->firstOrFail();
+        return view('movie.movie_detail', compact('movie'));
     }
 }

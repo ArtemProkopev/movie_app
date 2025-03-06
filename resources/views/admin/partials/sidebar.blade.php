@@ -2,25 +2,25 @@
 	<div class="sidebar-sticky">
 			<ul class="nav flex-column">
 					<li class="nav-item">
-							<a class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+							<a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
 									Dashboard
 							</a>
 					</li>
 					<li class="nav-item">
-							<a class="nav-link {{ request()->is('admin/users*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+							<a class="nav-link {{ request()->routeIs('admin.users.index') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
 									Users
 							</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link {{ request()->is('movies*') ? 'active' : '' }}" href="{{ route('movie.list') }}">
-								Movies
-						</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">
-							Home
-					</a>
-			</li>
+							<a class="nav-link {{ request()->routeIs('movie.list') ? 'active' : '' }}" href="{{ route('movie.list') }}">
+									Movies
+							</a>
+					</li>
+					<li class="nav-item">
+							<a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+									Home
+							</a>
+					</li>
 			</ul>
 	</div>
 </nav>

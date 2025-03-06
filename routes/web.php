@@ -34,16 +34,17 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/movies', [MovieController::class, 'index'])->name('movie.list');
-Route::get('/movies/{id}', function ($id) {
-    $movie = Movie::query()->find($id);
-    if (!$movie) {
-        abort(404);
-    }
-    return view('movie.movie_detail', compact('movie'));
-})->name('movie.show');
+// Route::get('/movies', [MovieController::class, 'index'])->name('movie.list');
+// Route::get('/movies/{id}', function ($id) {
+//     $movie = Movie::query()->find($id);
+//     if (!$movie) {
+//         abort(404);
+//     }
+//     return view('movie.movie_detail', compact('movie'));
+// })->name('movie.show');
 
 Route::get('/movies', [MovieController::class, 'index'])->name('movie.list');
+Route::get('/movies/{slug}', [MovieController::class, 'show'])->name('movies.show');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

@@ -39,7 +39,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-dark">{{ $movie->title }}</h5>
                             <p class="card-text text-muted">{{ $movie->year }}</p>
-                            <a href="{{ route('movie.show', $movie->id) }}" class="btn btn-warning btn-sm">Подробнее</a>
+                            <a href="{{ route('movies.show', ['slug' => $movie->slug]) }}" class="btn btn-warning btn-sm">Подробнее</a>
                         </div>
                     </div>
                 </div>

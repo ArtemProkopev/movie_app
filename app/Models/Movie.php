@@ -5,20 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
-/**
- * @property int $id
- * @property string $title
- * @property string $slug
- * @property string $description
- * @property int $duration
- * @property string $country
- * @property \Carbon\Carbon $release_date
- * @property int $rating
- * @property string $poster
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Genre[] $genres
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Schedule[] $schedules
- */
 class Movie extends Model
 {
     protected $fillable = [
@@ -31,6 +19,17 @@ class Movie extends Model
         'rating',
         'poster',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($movie) {
+            if (empty($movie->slug)) {
+                $movie->slug = Str::slug($movie->title);
+            }
+        });
+    }
 
     public function genres(): BelongsToMany 
     {
