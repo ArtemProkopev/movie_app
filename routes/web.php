@@ -9,6 +9,7 @@ use App\Models\Movie;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Redirect;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
