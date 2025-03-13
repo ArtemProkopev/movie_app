@@ -21,6 +21,12 @@
 									Home
 							</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link {{ request()->routeIs('admin.movies.create') ? 'active' : '' }}" href="{{ route('admin.movies.create') }}">
+								Add movie
+						</a>
+				</li>
+				
 			</ul>
 	</div>
 </nav>
