@@ -17,14 +17,16 @@ Route::post('/genres', [GenreController::class, 'store'])->name('genre.store');
 Route::get('/genres', [GenreController::class, 'index'])->name('genre.index');  
 
 Route::prefix('admin')->name('admin.')->group(function () {
-
     Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
     Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
+    Route::get('/movies/{slug}/edit', [MovieController::class, 'edit'])->name('movies.edit');
+    Route::put('/movies/{slug}', [MovieController::class, 'update'])->name('movies.update');
+    Route::delete('/movies/{slug}', [MovieController::class, 'destroy'])->name('movies.destroy');
     
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::prefix('users')->name('users.')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('index'); // admin.users.index
+        Route::get('/', [UserController::class, 'index'])->name('index');
     });
 });
 

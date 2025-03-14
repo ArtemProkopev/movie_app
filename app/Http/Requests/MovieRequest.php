@@ -21,9 +21,10 @@ class MovieRequest extends FormRequest
             'country' => ['required', 'string'],
             'release_date' => ['required', Rule::date()->format('Y-m-d')],
             'rating' => ['required', 'integer', 'min:1'],
-            'poster' => ['required', 'image'],
-            'genres' => ['required', 'array'],
-            'genres.*' => ['exists:genres,name'],
+            'poster' => ['nullable', 'image'],
+            'genres' => ['required', 'array', 'min:1'],
+            'genres.*' => ['exists:genres,id'],
         ];
     }
 }
+

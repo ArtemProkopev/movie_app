@@ -42,12 +42,12 @@
 
 	<div>
 			<label for="poster">Poster</label>
-			<input type="file" name="poster" id="poster" accept="image/*" required>
+			<input type="file" name="poster" id="poster" accept="image/*">
 	</div>
 
 	<div>
 			<label for="genres">Genres</label>
-			<select name="genres[]" id="genres" multiple>
+			<select name="genres[]" id="genres" multiple required>
 					@foreach($genres as $genre)
 							<option value="{{ $genre->id }}">{{ $genre->name }}</option>
 					@endforeach
