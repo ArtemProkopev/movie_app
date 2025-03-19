@@ -31,6 +31,12 @@ class Movie extends Model
         });
     }
 
+    public function getImageUrlAttribute()
+    {
+
+        return $this->poster ? asset('storage/' . $this->poster) : asset('storage/posters/default-poster.jpg');
+    }
+
     public function genres(): BelongsToMany 
     {
         return $this->belongsToMany(Genre::class, 'movie_genre', 'movie_id', 'genre_id');
