@@ -24,7 +24,7 @@ class MovieService implements MovieServiceInterface
 
     public function createMovie(array $data): Movie
     {
-        Log::info('Movie data:', $data);
+        Log::info('Movie data for creation:', $data);
 
         if (isset($data['poster'])) {
             $data['poster'] = $data['poster']->store('posters', 'public');
@@ -38,7 +38,7 @@ class MovieService implements MovieServiceInterface
         return $movie;
     }
 
-    public function updateMovie($slug, array $data): Movie 
+    public function updateMovie($slug, array $data): Movie
     {
         $movie = Movie::where('slug', $slug)->firstOrFail(); 
 
@@ -64,11 +64,13 @@ class MovieService implements MovieServiceInterface
     public function deleteMovie(int $id): bool
     {
         $movie = Movie::findOrFail($id);
-        
+
+        $movie->genres()->detach();
+
         if ($movie->poster) {
             Storage::disk('public')->delete($movie->poster);
         }
 
-        return $movie->delete();
+    return $movie->delete();
     }
 }

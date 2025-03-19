@@ -46,13 +46,13 @@
 	</div>
 
 	<div>
-			<label for="genres">Genres</label>
-			<select name="genres[]" id="genres" multiple required>
-					@foreach($genres as $genre)
-							<option value="{{ $genre->id }}">{{ $genre->name }}</option>
-					@endforeach
-			</select>
-	</div>
+    <label for="genres">Genres</label>
+    <select name="genres[]" id="genres" multiple required>
+        @foreach($genres as $genre)
+            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+        @endforeach
+    </select>
+</div>
 
 	<button type="submit">Save</button>
 </form>
