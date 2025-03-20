@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/movies/{slug}/edit', [MovieController::class, 'edit'])->name('movies.edit');
     Route::put('/movies/{slug}', [MovieController::class, 'update'])->name('movies.update');
     Route::delete('/movies/{slug}', [MovieController::class, 'destroy'])->name('movies.destroy');
+
+    Route::resource('tickets', TicketController::class);
     
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 

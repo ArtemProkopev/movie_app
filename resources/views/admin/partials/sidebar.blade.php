@@ -26,7 +26,11 @@
 								Add movie
 						</a>
 				</li>
-				
+				<li class="nav-item">
+					<a class="nav-link {{ request()->routeIs('admin.tickets.index') ? 'active' : '' }}" href="{{ route('admin.tickets.index') }}">
+							Tickets
+					</a>
+			</li>
 			</ul>
 	</div>
 </nav>
