@@ -6,7 +6,6 @@
             @foreach($movies as $movie)
             <article class="movie-item">
                 <div class="card bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full">
-                    <!-- Отображение постера фильма -->
                     <img src="{{ $movie->image_url }}" class="w-full h-64 object-cover" alt="{{ $movie->title }}">
                     <div class="card-body p-4 flex flex-col flex-grow">
                         <h2 class="card-title text-lg font-semibold mb-2">

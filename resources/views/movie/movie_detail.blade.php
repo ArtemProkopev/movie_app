@@ -5,7 +5,6 @@
 @section('content')
     <section class="movie-detail">
         <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-            <!-- Отображаем изображение постера -->
             <img src="{{ $movie->image_url }}" alt="{{ $movie->title }}" class="w-full h-96 object-cover">
             
             <div class="p-6">
