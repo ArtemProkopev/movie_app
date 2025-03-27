@@ -56,19 +56,19 @@ class TicketController extends Controller
     }
 
     public function update(Request $request, Ticket $ticket)
-    {
-        $request->validate([
-            'schedule_id' => 'required|exists:schedules,id',
-            'hall_seat_id' => 'required|exists:hall_seats,id',
-        ]);
+{
+    $request->validate([
+        'schedule_id' => 'required|exists:schedules,id',
+        'hall_seat_id' => 'required|exists:hall_seats,id',
+    ]);
 
-        $ticket->update([
-            'schedule_id' => $request->input('schedule_id'),
-            'hall_seat_id' => $request->input('hall_seat_id'),
-        ]);
+    $this->ticketService->update($ticket, [
+        'schedule_id' => $request->input('schedule_id'),
+        'hall_seat_id' => $request->input('hall_seat_id'),
+    ]);
 
-        return redirect()->route('admin.tickets.index')->with('success', 'Билет обновлен');
-    }
+    return redirect()->route('admin.tickets.index')->with('success', 'Билет обновлен');
+}
 
     public function destroy(Ticket $ticket)
     {
