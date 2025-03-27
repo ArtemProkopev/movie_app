@@ -23,7 +23,6 @@ class MovieSeeder extends Seeder
                 'release_date' => now()->subYears(rand(1, 10)),
                 'rating' => rand(1, 10),
                 'poster' => 'default.jpg',
-                'genre_id' => $genre->id,
             ]);
 
             $movie->genres()->attach($genre->id);

@@ -11,18 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('movies', function (Blueprint $table) {
-            $table->dropColumn('genre_id');
-        });
+        if (Schema::hasColumn('movies', 'genre_id')) {
+            Schema::table('movies', function (Blueprint $table) {
+                $table->dropColumn('genre_id');
+            });
+        }
     }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
-    {
+{
+    if (!Schema::hasColumn('movies', 'genre_id')) {
         Schema::table('movies', function (Blueprint $table) {
-            $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade');
+            $table->foreignId('genre_id')
+                ->nullable()
+                ->default(1)
+                ->constrained('genres')
+                ->onDelete('cascade');
         });
     }
+}
 };

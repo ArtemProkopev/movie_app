@@ -20,18 +20,10 @@ return new class extends Migration
             $table->string('poster');
             $table->timestamps();
         });
-
-        Schema::create('movie_genre', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->foreignId('genre_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-        });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('movie_genre');
         Schema::dropIfExists('movies');
     }
 };
