@@ -13,6 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('schedule_id');
             $table->unsignedBigInteger('hall_seat_id');
             $table->unsignedBigInteger('user_id');
+            $table->decimal('price', 8, 2);
             $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->foreign('hall_seat_id')->references('id')->on('hall_seats')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

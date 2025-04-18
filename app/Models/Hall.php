@@ -14,6 +14,6 @@ class Hall extends Model
 
     public function hallSeats(): HasMany
     {
-        return $this->hasMany(HallSeat::class, 'hall_id');
+        return $this->hasMany(HallSeat::class);
     }
 }

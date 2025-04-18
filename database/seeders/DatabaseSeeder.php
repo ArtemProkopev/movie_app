@@ -12,10 +12,9 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             MovieSeeder::class,
             UserSeeder::class,
-            ScheduleSeeder::class,
             HallSeeder::class,
-            SeatSeeder::class,
             HallSeatSeeder::class,
+            ScheduleSeeder::class,
         ]);
     }
 }

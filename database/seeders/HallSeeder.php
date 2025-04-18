@@ -10,9 +10,13 @@ class HallSeeder extends Seeder
     public function run()
     {
         Hall::create([
-            'id' => 1,
-            'name' => 'Зал 1',
-            'type' => 'regular',
+            'name' => 'Основной зал',
+            'type' => 'regular'
+        ]);
+        
+        Hall::create([
+            'name' => 'IMAX Зал',
+            'type' => 'IMAX'
         ]);
     }
 }

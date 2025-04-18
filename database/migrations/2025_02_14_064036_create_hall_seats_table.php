@@ -9,11 +9,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('hall_seats', function (Blueprint $table) {
-            $table->id(); 
-            $table->string('seat_number'); 
-            $table->string('row'); 
-            $table->foreignId('hall_id')->constrained('halls'); 
-            $table->foreignId('seat_id')->constrained('seats'); 
+            $table->id();
+            $table->string('seat_number');
+            // $table->foreignId('seat_id')->constrained();
+            $table->string('row');
+            $table->decimal('price', 8, 2);
+            $table->foreignId('hall_id')->constrained();
             $table->timestamps();
         });
     }
