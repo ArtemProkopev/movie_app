@@ -6,6 +6,7 @@
     <title>@yield('title', 'Default Title')</title>
     @vite('resources/css/app.css')
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {{-- @stack('styles') --}}
 </head>
 <body>
     <main>
